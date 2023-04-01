@@ -1,0 +1,25 @@
+ALGORITHM Sorting
+VAR
+    pos,i,j,k : INTEGER;
+    arr : ARRAY_OF FLOAT;
+    x,tmp : FLOAT;
+BEGIN
+// Taille du tableau et l'élément à insérer
+    Write("Donner la taille du tableau");
+    Read(k);
+    Write("Donner l'élément à insérer");
+    Read(x);
+// Insertion de l'élément dans sa bonne position dans le tableau trié
+    FOR i FROM 1 TO k+1 STEP step  DO
+        IF (arr[i]>x) THEN
+            tmp← arr[i];
+            arr[i]← x;
+            pos← i+1;
+        END_IF
+    END_FOR
+// Décalage des éléments du tableau
+    FOR j FROM k+1 TO pos STEP step  DO
+        arr[j]← arr[j-1];
+    END_FOR
+    arr[pos]← tmp;
+END
